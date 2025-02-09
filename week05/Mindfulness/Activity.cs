@@ -2,14 +2,14 @@ using System.Data;
 
 public class Activity
 {
-    private string _name;
-    private string _description;
-    private int _duration;
+    protected string _name;
+    protected string _description;
+    protected int _duration;
 
-    public Activity(string name, string description, int duration)
+    public Activity(int duration)
     {
-        _name = name;
-        _description = description;
+        _name = "Activity";
+        _description = "description";
         _duration = duration;
     }
 
@@ -26,8 +26,10 @@ public class Activity
 
     public void DisplayEndingMessage()
     {
-        Console.WriteLine("Well done!!");
-        Console.WriteLine($"You have completed another {_duration} seconds of the {_name} Activity.");
+        Console.WriteLine("\nWell done!!");
+        ShowSpinner(5);
+        Console.WriteLine($"\nYou have completed another {_duration} seconds of the {_name} Activity.");
+        ShowSpinner(5);
     }
 
     public void ShowSpinner(int seconds)
@@ -50,7 +52,7 @@ public class Activity
         {
             string s = spinnerSymbols[i];
             Console.Write(s);
-            Thread.Sleep(1000);
+            Thread.Sleep(750);
             Console.Write("\b \b");
 
             i++;
