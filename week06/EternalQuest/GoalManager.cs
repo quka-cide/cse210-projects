@@ -52,6 +52,9 @@ public class GoalManager
     public void DisplayPlayerInfo()
     {
         Console.WriteLine($"\nYou have {_score} points.");
+
+        int level = CalculateLevel(_score);
+    Console.WriteLine($"Your current level: {level}");
     }
 
     public void ListGoalNames()
@@ -193,4 +196,13 @@ public class GoalManager
             }
         }
     }
+
+    private int CalculateLevel(int score)
+{
+    if (score >= 300) return 4;
+    if (score >= 200) return 3;
+    if (score >= 100) return 2;
+    return 1;
+}
+
 }
